@@ -1,7 +1,5 @@
 import { openai } from '@ai-sdk/openai';
 import { Agent } from '@mastra/core/agent';
-import { Memory } from '@mastra/memory';
-import { LibSQLStore } from '@mastra/libsql';
 import { subtitleAgentNormal } from '../tools/subtitle-agent-simple';
 
 export const subtitleAgentInstance = new Agent({
@@ -26,9 +24,10 @@ export const subtitleAgentInstance = new Agent({
 `,
   model: openai('gpt-4o-mini'),
   tools: { subtitleAgent: subtitleAgentNormal },
-  memory: new Memory({
-    storage: new LibSQLStore({
-      url: 'file:../mastra.db',
-    }),
-  }),
+  // Note: Memory is disabled for Cloudflare Workers compatibility
+  // memory: new Memory({
+  //   storage: new LibSQLStore({
+  //     url: 'file:../mastra.db',
+  //   }),
+  // }),
 });
