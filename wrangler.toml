@@ -1,13 +1,14 @@
 name = "subtitle-agent"
-main = ".mastra/output/index.mjs"
+main = "src/worker.ts"
 compatibility_date = "2025-08-13"
-compatibility_flags = ["nodejs_compat", "nodejs_compat_populate_process_env"]
+compatibility_flags = ["nodejs_compat"]
 
 [observability]
   [observability.logs]
   enabled = true
 
-[build]
-command = "npm run build"
+# Node.js compatibility for Mastra dependencies
+[env.production.vars]
+NODE_ENV = "production"
 
 
