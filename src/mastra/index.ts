@@ -8,10 +8,6 @@ import { subtitleAgentInstance } from './agents/subtitle-agent';
 export const mastra = new Mastra({
   workflows: { weatherWorkflow },
   agents: { weatherAgent, subtitleAgent: subtitleAgentInstance },
-  // Note: Storage is disabled for Cloudflare Workers compatibility
-  // storage: new LibSQLStore({
-  //   url: ":memory:",
-  // }),
   logger: new PinoLogger({
     name: 'Mastra',
     level: 'info',

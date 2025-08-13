@@ -20,10 +20,4 @@ export const weatherAgent = new Agent({
 `,
   model: openai('gpt-4o-mini'),
   tools: { weatherTool },
-  // Note: Memory is disabled for Cloudflare Workers compatibility
-  // memory: new Memory({
-  //   storage: new LibSQLStore({
-  //     url: 'file:../mastra.db',
-  //   }),
-  // }),
 });
