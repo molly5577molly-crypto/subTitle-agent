@@ -7,11 +7,17 @@ compatibility_flags = ["nodejs_compat"]
   [observability.logs]
   enabled = true
 
-# Environment variables
+# Environment variables - Use wrangler secrets for sensitive data
 [vars]
 NODE_ENV = "production"
-# Add your API keys here or use wrangler secrets
-# OPENAI_API_KEY = "your-openai-api-key"
-# YOUTUBE_API_KEY = "your-youtube-api-key"
+
+# Use wrangler secrets to set these securely:
+# wrangler secret put CLOUDFLARE_API_TOKEN
+# wrangler secret put CLOUDFLARE_API_EMAIL  
+# wrangler secret put CLOUDFLARE_ACCOUNT_ID
+# wrangler secret put OPENAI_API_KEY
+# wrangler secret put YOUTUBE_API_KEY
+
+# For development, you can use .env.local file
 
 

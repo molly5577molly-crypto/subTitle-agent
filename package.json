@@ -7,7 +7,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "mastra dev",
     "build": "mastra build",
-    "start": "mastra start"
+    "start": "mastra start",
+    "deploy": "mastra build && wrangler deploy --config .mastra/output/wrangler.json",
+    "deploy:preview": "mastra build && wrangler deploy --config .mastra/output/wrangler.json --env preview",
+    "wrangler:dev": "mastra build && wrangler dev --config .mastra/output/wrangler.json",
+    "wrangler:login": "wrangler login",
+    "secrets:setup": "echo 'Run the following commands to set up your secrets:' && echo 'wrangler secret put CLOUDFLARE_API_TOKEN' && echo 'wrangler secret put CLOUDFLARE_API_EMAIL' && echo 'wrangler secret put CLOUDFLARE_ACCOUNT_ID' && echo 'wrangler secret put OPENAI_API_KEY' && echo 'wrangler secret put YOUTUBE_API_KEY'"
   },
   "keywords": [],
   "author": "",
@@ -28,6 +33,7 @@
   "devDependencies": {
     "@types/node": "^24.2.1",
     "mastra": "^0.10.20",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "wrangler": "^3.111.0"
   }
 }
